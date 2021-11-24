@@ -6,5 +6,6 @@ public class Main {
 
         // Process all input-dictionary files
         System.out.println("Starting...");
+
     }
 }
