@@ -25,7 +25,15 @@ public class Word {
     private ArrayList<Definition> definitions;
 
     /** Constructors */
-
+    public Word(String word, String word_en, String type, ArrayList<String> singular,
+                ArrayList<String> plural,ArrayList<Definition> definitions) {
+        this.word = word;
+        this.word_en = word_en;
+        this.type = type;
+        this.singular = singular;
+        this.plural = plural;
+        this.definitions = definitions;
+    }
 
     /** Getters */
     public String getWord() {

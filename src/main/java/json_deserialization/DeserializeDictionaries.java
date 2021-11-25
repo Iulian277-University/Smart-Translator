@@ -49,29 +49,16 @@ public class DeserializeDictionaries {
     // Map<Language_Name, List_Of_Words>
     private static Map<String, ArrayList<Word>> words = new HashMap<>();
 
-    public static void deserialize() {
+    public static void deserialize() throws IOException {
         List<String> inputFiles = null;
-        try {
-            inputFiles = findFiles(Paths.get(Constants.DICTIONARIES_DIRECTORY), Constants.JSON_EXTENSION);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        inputFiles = findFiles(Paths.get(Constants.DICTIONARIES_DIRECTORY), Constants.JSON_EXTENSION);
+
 
         Type type = new TypeToken<List<Word>>(){}.getType();
         Gson gson = new Gson();
         for(String inputFile: inputFiles) {
-            JsonReader reader = null;
-            try {
-                reader = new JsonReader(new FileReader(inputFile));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            JsonReader reader = new JsonReader(new FileReader(inputFile));
+
 
             // Append to hashmap based on language - dict json fromat: XX_dict.json
             // XX = "ro", "fr", etc...

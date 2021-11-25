@@ -1,20 +1,19 @@
 package main;
 
-import entities.Word;
 import json_deserialization.DeserializeDictionaries;
+import main.testcases.TestAddBook;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.io.IOException;
 
 /** This is class is the entry point of the program */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // Deserialize json into class models
         DeserializeDictionaries.deserialize();
 
-        // Map<Language_Name, List_Of_Words>
-        Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
+        // TestAddBook
+        TestAddBook.testAddBook();
 
     }
 }
