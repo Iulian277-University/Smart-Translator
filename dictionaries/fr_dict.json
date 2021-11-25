@@ -1,7 +1,6 @@
 [
 	{
-		"language": "fr",
-		"word": "chat",
+	"word": "chat",
 	"word_en": "cat",
 	"type": "noun",
 	"singular": ["chat"],
@@ -24,8 +23,7 @@
 		]
 	},
 	{
-		"language": "fr",
-		"word": "jeu",
+	"word": "jeu",
 	"word_en": "game",
 	"type": "noun",
 	"singular": ["jeu"],
@@ -49,8 +47,7 @@
 		]
 	},
 	{
-		"language": "fr",
-		"word": "manger",
+	"word": "manger",
 	"word_en": "eat",
 	"type": "verb",
 	"singular": ["mange", "manges", "mange"],

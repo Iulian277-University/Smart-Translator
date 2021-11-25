@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -47,34 +48,55 @@ public class DeserializeDictionaries {
 
     // Map<Language_Name, List_Of_Words>
     private static Map<String, ArrayList<Word>> words = new HashMap<>();
-//    private static List<Word> wordsAsList = new ArrayList<>();
 
-    public static void deserialize() throws IOException {
-        List<String> inputFiles;
-        inputFiles = findFiles(Paths.get(Constants.DICTIONARIES_DIRECTORY), "json");
+    public static void deserialize() {
+        List<String> inputFiles = null;
+        try {
+            inputFiles = findFiles(Paths.get(Constants.DICTIONARIES_DIRECTORY), Constants.JSON_EXTENSION);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Type type = new TypeToken<List<Word>>(){}.getType();
         Gson gson = new Gson();
         for(String inputFile: inputFiles) {
-            JsonReader reader = new JsonReader(
-                    new FileReader(Constants.DICTIONARIES_DIRECTORY + inputFile));
+            JsonReader reader = null;
+            try {
+                reader = new JsonReader(new FileReader(inputFile));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
             // Append to hashmap based on language - dict json fromat: XX_dict.json
             // XX = "ro", "fr", etc...
-
-
-//            wordsAsList = gson.fromJson(reader, type);
-//            for(Word word: wordsAsList) {
-//                // Check word language and add id to the hashmap
-//                String wordLanguage = word.getLanguage();
-//                // If it doesn't exist a hashmap for this language, create it
-//                // Otherwise, append to the existing hashmap
-//
-//            }
+            String dictLanguage = inputFile.split("_")[0].split(Pattern.quote("\\"))[1];
+            words.put(dictLanguage, gson.fromJson(reader, type));
 
         }
 
+        // Examples of usage
 
+//        for(Map.Entry<String, ArrayList<Word>> entry: words.entrySet()) {
+//            String language = entry.getKey();
+//            ArrayList<Word> words = entry.getValue();
+//            for(Word word: words) {
+//                System.out.print(word.getWord() + " ");
+//            }
+//            System.out.println();
+//        }
+
+//        ArrayList<Word> roWords = words.get("ro");
+
+    }
+
+    public static Map<String, ArrayList<Word>> getMapOfWords() {
+        return words;
     }
 
 }

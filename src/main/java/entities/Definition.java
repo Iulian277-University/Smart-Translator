@@ -24,6 +24,11 @@ public class Definition {
     public String getDict() {
         return dict;
     }
+
+    public Integer getYear() {
+        return year;
+    }
+
     /**  Setters */
 
 }

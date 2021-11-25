@@ -6,9 +6,6 @@ import java.util.ArrayList;
 
 public class Word {
     /** Attributes */
-    @SerializedName("language")
-    private String language;
-
     @SerializedName("word")
     private String word;
 
@@ -35,8 +32,8 @@ public class Word {
         return word;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getWord_en() {
+        return word_en;
     }
 
     public ArrayList<Definition> getDefinitions() {
