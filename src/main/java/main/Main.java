@@ -1,7 +1,7 @@
 package main;
 
 import json_deserialization.DeserializeDictionaries;
-import main.testcases.TestAddBook;
+import main.testcases.*;
 
 import java.io.IOException;
 
@@ -12,8 +12,11 @@ public class Main {
         // Deserialize json into class models
         DeserializeDictionaries.deserialize();
 
-        // TestAddBook
-        TestAddBook.testAddBook();
+        // TestAddWord
+//        TestAddWord.testAddWord();
+
+        // TestRemoveWord
+//        TestRemoveWord.testRemoveWord();
 
     }
 }
