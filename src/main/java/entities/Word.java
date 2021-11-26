@@ -25,7 +25,15 @@ public class Word {
     private ArrayList<Definition> definitions;
 
     /** Constructors */
-
+    public Word(String word, String word_en, String type, ArrayList<String> singular,
+                ArrayList<String> plural,ArrayList<Definition> definitions) {
+        this.word = word;
+        this.word_en = word_en;
+        this.type = type;
+        this.singular = singular;
+        this.plural = plural;
+        this.definitions = definitions;
+    }
 
     /** Getters */
     public String getWord() {
@@ -40,6 +48,23 @@ public class Word {
         return definitions;
     }
 
+    public void setDefinitions(ArrayList<Definition> definitions) {
+        this.definitions = definitions;
+    }
+
     /** Setters */
 
+
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "word='" + word + '\'' +
+                ", word_en='" + word_en + '\'' +
+                ", type='" + type + '\'' +
+                ", singular=" + singular +
+                ", plural=" + plural +
+                ", definitions=" + definitions +
+                '}';
+    }
 }

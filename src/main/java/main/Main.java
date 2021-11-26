@@ -1,20 +1,41 @@
 package main;
 
-import entities.Word;
+import actions.RemoveDefinitionForWord;
 import json_deserialization.DeserializeDictionaries;
+import main.testcases.*;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.io.IOException;
 
 /** This is class is the entry point of the program */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // Deserialize json into class models
         DeserializeDictionaries.deserialize();
 
-        // Map<Language_Name, List_Of_Words>
-        Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
+        // TestAddWord
+        // TestAddWord.testAddWord();
+
+        // TestRemoveWord
+        // TestRemoveWord.testRemoveWord();
+
+        // TestAddDefinitionForWord
+        // TestAddDefinitionForWord.testAddDefinitionForWord();
+
+        // TestRemoveDefinitionForWord
+        // TestRemoveDefinitionForWord.testRemoveDefinitionForWord();
+
+        // TestTranslateWord
+        // TestTranslateWord.testTranslateWord();
+
+        // TestTranslateSentence
+        // TestTranslateSentence.testTranslateSentence();
+
+        // TestTranslateSentencesSynonyms
+        // TestTranslateSentenceSynonyms.testTranslateSentenceSynonyms();
+
+        // TestGetDefinitionsForWord
+        // TestGetDefinitionsForWord.testGetDefinitionsForWord();
 
     }
 }
