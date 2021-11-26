@@ -48,7 +48,12 @@ public class Word {
         return definitions;
     }
 
+    public void setDefinitions(ArrayList<Definition> definitions) {
+        this.definitions = definitions;
+    }
+
     /** Setters */
+
 
 
     @Override

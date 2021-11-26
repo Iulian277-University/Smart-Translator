@@ -10,12 +10,12 @@ public final class AddWord {
     private AddWord() {}
 
     // Map<Language_Name, List_Of_Words>
-    private static Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
+    private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
     public static boolean addWord(Word word, String language) {
 
         ArrayList<Word> languageWords = wordsMap.get(language);
-        // The dictionary with 'language' doesn't exist
+        // The dictionary in 'language' doesn't exist
         if(languageWords == null) {
             ArrayList<Word> firstWord = new ArrayList<>();
             firstWord.add(word);

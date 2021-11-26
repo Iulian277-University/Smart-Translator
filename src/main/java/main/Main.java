@@ -1,5 +1,6 @@
 package main;
 
+import actions.RemoveDefinitionForWord;
 import json_deserialization.DeserializeDictionaries;
 import main.testcases.*;
 
@@ -13,14 +14,16 @@ public class Main {
         DeserializeDictionaries.deserialize();
 
         // TestAddWord
-//        TestAddWord.testAddWord();
+        // TestAddWord.testAddWord();
 
         // TestRemoveWord
-//        TestRemoveWord.testRemoveWord();
+        // TestRemoveWord.testRemoveWord();
 
         // TestAddDefinitionForWord
-//        TestAddDefinitionForWord.testAddDefinitionForWord();
+        // TestAddDefinitionForWord.testAddDefinitionForWord();
 
+        // TestRemoveDefinitionForWord
+        // TestRemoveDefinitionForWord.testRemoveDefinitionForWord();
 
     }
 }

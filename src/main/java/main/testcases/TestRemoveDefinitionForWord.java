@@ -1,17 +1,16 @@
 package main.testcases;
 
-import actions.AddDefinitionForWord;
-import entities.Definition;
+import actions.RemoveDefinitionForWord;
 import entities.Word;
 import json_deserialization.DeserializeDictionaries;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-public final class TestAddDefinitionForWord {
-    private TestAddDefinitionForWord() {}
+public final class TestRemoveDefinitionForWord {
+    private TestRemoveDefinitionForWord() {}
 
-    public static void testAddDefinitionForWord() {
+    public static void testRemoveDefinitionForWord() {
 
         // Before
         System.out.println("Before-FR");
@@ -22,11 +21,7 @@ public final class TestAddDefinitionForWord {
         }
         System.out.println();
 
-        // Generate a new definition
-        ArrayList<String> textDef = new ArrayList<>();
-        Definition def = new Definition("Larousse1", "synonyms", 2010, textDef);
-
-        AddDefinitionForWord.addDefinitionForWord("manger", "fr", def);
+        RemoveDefinitionForWord.removeDefinition("chat", "fr", "Larousse");
 
         // After
         System.out.println("After-FR");
@@ -35,7 +30,5 @@ public final class TestAddDefinitionForWord {
             System.out.println(word);
         }
         System.out.println();
-
     }
-
 }

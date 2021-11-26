@@ -12,10 +12,10 @@ public final class AddDefinitionForWord {
     private AddDefinitionForWord() {}
 
     // Map<Language_Name, List_Of_Words>
-    private static Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
+    private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
     public static boolean addDefinitionForWord(String word, String language, Definition definition) {
-        // The dictionary with 'language' doesn't exist
+        // The dictionary in 'language' doesn't exist
         ArrayList<Word> languageWords = wordsMap.get(language);
         if(languageWords == null) {
             System.out.println("The dictionary in language " + language + " doesn't exist");
