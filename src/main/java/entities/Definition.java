@@ -31,8 +31,16 @@ public class Definition {
         return dict;
     }
 
+    public String getDictType() {
+        return dictType;
+    }
+
     public Integer getYear() {
         return year;
+    }
+
+    public ArrayList<String> getText() {
+        return text;
     }
 
     /**  Setters */

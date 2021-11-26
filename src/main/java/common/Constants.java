@@ -7,5 +7,10 @@ public final class Constants {
     public static final String DICTIONARIES_DIRECTORY = "dictionaries/";
     public static final String JSON_EXTENSION = "json";
 
+    public static final String DEFINITION_SYNONYMS = "synonyms";
+    public static final String DEFINITION_DEFINITIONS = "definitions";
+
+    public static final Integer TRANSLATION_ALTERNATIVES = 3;
+
 
 }

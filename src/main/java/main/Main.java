@@ -31,5 +31,8 @@ public class Main {
         // TestTranslateSentence
         // TestTranslateSentence.testTranslateSentence();
 
+        // TestTranslateSentencesSynonyms
+         TestTranslateSentenceSynonyms.testTranslateSentenceSynonyms();
+
     }
 }
