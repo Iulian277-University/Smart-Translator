@@ -32,7 +32,10 @@ public class Main {
         // TestTranslateSentence.testTranslateSentence();
 
         // TestTranslateSentencesSynonyms
-         TestTranslateSentenceSynonyms.testTranslateSentenceSynonyms();
+        // TestTranslateSentenceSynonyms.testTranslateSentenceSynonyms();
+
+        // TestGetDefinitionsForWord
+        // TestGetDefinitionsForWord.testGetDefinitionsForWord();
 
     }
 }
