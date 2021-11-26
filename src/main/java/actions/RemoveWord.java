@@ -2,6 +2,7 @@ package actions;
 
 import entities.Word;
 import json_deserialization.DeserializeDictionaries;
+import utils.FilterEntities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,33 +15,26 @@ public final class RemoveWord {
     // Map<Language_Name, List_Of_Words>
     private static Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
-    private static Word filterWordsByName(ArrayList<Word> words, String wordName) {
-        List<Word> wordsFiltered = words
-                .stream()
-                .filter(w -> w.getWord().equals(wordName))
-                .collect(Collectors.toList());
 
-        if(wordsFiltered.isEmpty()) {
-            return null;
-        }
-
-        return wordsFiltered.get(0);
-    }
 
     public static boolean removeWord(String word, String language) {
         ArrayList<Word> languageWords = wordsMap.get(language);
-        // Dictionary contains zero words for 'language'
+        // Dictionary contains zero words in 'language'
         if(languageWords == null) {
+            System.out.println("Dictionary doesn't contain words in language '" + language + "'");
             return false;
         }
 
-        Word filteredWord = filterWordsByName(languageWords, word);
+        Word filteredWord = FilterEntities.filterWordsByName(languageWords, word);
         // The word isn't in the dictionary
         if(filteredWord == null) {
+            System.out.println("The word '" + word + "' isn't in the dictionary");
             return false;
         }
 
+        // Remove the word
         languageWords.remove(filteredWord);
+        System.out.println("The word '" + filteredWord.getWord() + "' was successfully removed from '" + language + "' dictionary");
         return true;
     }
 

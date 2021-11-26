@@ -20,14 +20,19 @@ public final class AddWord {
             ArrayList<Word> firstWord = new ArrayList<>();
             firstWord.add(word);
             wordsMap.put(language, firstWord);
+            System.out.println("The word '" + word.getWord() + "' was successfully added in '" + language + "' dictionary");
             return true;
         }
 
+        // The word is already in the list
         if(languageWords.contains(word)) {
+            System.out.println("The word '" + word.getWord() + "' is already in the list");
             return false;
         }
 
+        // Append the word to the list
         languageWords.add(word);
+        System.out.println("The word '" + word.getWord() + "' was successfully added in '" + language + "' dictionary");
         return true;
     }
 }

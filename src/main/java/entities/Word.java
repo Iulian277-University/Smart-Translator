@@ -50,4 +50,16 @@ public class Word {
 
     /** Setters */
 
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "word='" + word + '\'' +
+                ", word_en='" + word_en + '\'' +
+                ", type='" + type + '\'' +
+                ", singular=" + singular +
+                ", plural=" + plural +
+                ", definitions=" + definitions +
+                '}';
+    }
 }

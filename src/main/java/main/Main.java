@@ -18,5 +18,9 @@ public class Main {
         // TestRemoveWord
 //        TestRemoveWord.testRemoveWord();
 
+        // TestAddDefinitionForWord
+//        TestAddDefinitionForWord.testAddDefinitionForWord();
+
+
     }
 }

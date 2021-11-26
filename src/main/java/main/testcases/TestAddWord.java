@@ -7,7 +7,7 @@ import json_deserialization.DeserializeDictionaries;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class TestAddWord {
+public final class TestAddWord {
     private TestAddWord() {}
 
     public static void testAddWord() {
@@ -40,14 +40,16 @@ public class TestAddWord {
         singular.add("plural2");
         singular.add("plural3");
 
-        Word testWord = new Word("wordTest", "wordTest_en", "noun", singular, plural, null);
-        AddWord.addWord(testWord, "en");
+        Word testWord = new Word("jeu", "wordTest_en", "noun", singular, plural, null);
+        AddWord.addWord(testWord, "fr");
 
         // After-EN
         System.out.println("After-EN");
-        ArrayList<Word> en2Words = wordsMap.get("en");
-        for(Word word: en2Words) {
-            System.out.println(word.getWord());
+        ArrayList<Word> en2Words = wordsMap.get("fr");
+        if(en2Words != null) {
+            for (Word word : en2Words) {
+                System.out.println(word.getWord());
+            }
         }
     }
 }
