@@ -25,5 +25,8 @@ public class Main {
         // TestRemoveDefinitionForWord
         // TestRemoveDefinitionForWord.testRemoveDefinitionForWord();
 
+        // TestTranslateWord
+        TestTranslateWord.translateWord();
+
     }
 }

@@ -23,4 +23,17 @@ public final class FilterEntities {
     }
 
 
+    public static Word filterWordsByEnglishName(ArrayList<Word> words, String wordNameInEnglish) {
+        List<Word> wordsFiltered = words
+                .stream()
+                .filter(w -> w.getWord_en().equals(wordNameInEnglish))
+                .collect(Collectors.toList());
+
+        if(wordsFiltered.isEmpty()) {
+            return null;
+        }
+
+        return wordsFiltered.get(0);
+    }
+
 }

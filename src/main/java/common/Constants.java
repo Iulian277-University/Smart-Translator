@@ -7,4 +7,5 @@ public final class Constants {
     public static final String DICTIONARIES_DIRECTORY = "dictionaries/";
     public static final String JSON_EXTENSION = "json";
 
+
 }
