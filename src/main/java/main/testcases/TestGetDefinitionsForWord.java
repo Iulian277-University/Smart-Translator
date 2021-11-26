@@ -10,8 +10,8 @@ public final class TestGetDefinitionsForWord {
 
     public static void testGetDefinitionsForWord() {
         ArrayList<Definition> definitions = GetDefinitionsForWord.getDefinitionsForWord("câine", "ro");
-        if(definitions != null) {
-            for (Definition definition : definitions) {
+        if(!definitions.isEmpty()) {
+            for (Definition definition: definitions) {
                 System.out.println(definition);
             }
         }

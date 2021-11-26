@@ -21,14 +21,14 @@ public final class GetDefinitionsForWord {
         ArrayList<Word> languageWords = wordsMap.get(language);
         if(languageWords == null) {
             System.out.println("The dictionary in language '" + language + "' doesn't exist");
-            return null;
+            return new ArrayList<>();
         }
 
         // The word isn't in the dictionary
         Word filteredWord = FilterEntities.filterWordsByName(languageWords, word);
         if(filteredWord == null) {
             System.out.println("The word '" + word + "' isn't in the dictionary");
-            return null;
+            return new ArrayList<>();
         }
 
         // Sort definitions in ascending order by 'year'
