@@ -26,7 +26,10 @@ public class Main {
         // TestRemoveDefinitionForWord.testRemoveDefinitionForWord();
 
         // TestTranslateWord
-        TestTranslateWord.translateWord();
+        // TestTranslateWord.testTranslateWord();
+
+        // TestTranslateSentence
+        // TestTranslateSentence.testTranslateSentence();
 
     }
 }
