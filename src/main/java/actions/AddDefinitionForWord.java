@@ -18,14 +18,14 @@ public final class AddDefinitionForWord {
         // The dictionary in 'language' doesn't exist
         ArrayList<Word> languageWords = wordsMap.get(language);
         if(languageWords == null) {
-            System.out.println("The dictionary in language " + language + " doesn't exist");
+            System.out.println("The dictionary in language '" + language + "' doesn't exist");
             return false;
         }
 
         // The word isn't in the dictionary
         Word filteredWord = FilterEntities.filterWordsByName(languageWords, word);
         if(filteredWord == null) {
-            System.out.println("The word " + word + " isn't in the dictionary");
+            System.out.println("The word '" + word + "' isn't in the dictionary");
             return false;
         }
 
@@ -33,7 +33,7 @@ public final class AddDefinitionForWord {
         ArrayList<Definition> filteredWordDefinitions = filteredWord.getDefinitions();
         for(Definition currentDefinition: filteredWordDefinitions) {
             if(currentDefinition.getDict().equals(definition.getDict())) {
-                System.out.println("Already exist a definition from dictionary " + definition.getDict());
+                System.out.println("Already exist a definition from dictionary '" + definition.getDict() + "'");
                 return false;
             }
         }

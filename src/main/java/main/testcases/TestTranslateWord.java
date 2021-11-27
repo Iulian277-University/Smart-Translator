@@ -6,10 +6,13 @@ public final class TestTranslateWord {
     private TestTranslateWord() {}
 
     public static void testTranslateWord() {
-        String translatedWord = TranslateWord.translateWord("chat", "fr", "ro");
+        String word = "chat";
+        String fromLanguage = "fr";
+        String toLanguage = "ro";
+
+        String translatedWord = TranslateWord.translateWordWithFeedback(word, fromLanguage, toLanguage);
         if(translatedWord != null) {
-            System.out.println(translatedWord);
+            System.out.println(fromLanguage + ":" + word + " -> " + toLanguage + ":" + translatedWord);
         }
     }
-
 }

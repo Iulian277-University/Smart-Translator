@@ -9,11 +9,14 @@ public final class TestTranslateSentenceSynonyms {
 
     public static void testTranslateSentenceSynonyms() {
         String sentence = "+chat *! jeu,  ?manger";
+
         ArrayList<String> translatedSentences =
                 TranslateSentenceSynonyms.translateSentence(sentence, "fr", "ro");
 
-        for(String translatedSentence: translatedSentences) {
-            System.out.println(translatedSentence);
+        if(!translatedSentences.isEmpty()) {
+            for (String translatedSentence : translatedSentences) {
+                System.out.println(translatedSentence);
+            }
         }
     }
 }
