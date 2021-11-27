@@ -24,7 +24,13 @@ public class Word {
     @SerializedName("definitions")
     private ArrayList<Definition> definitions;
 
+
     /** Constructors */
+    public Word(String word, String word_en) {
+        this.word = word;
+        this.word_en = word_en;
+    }
+
     public Word(String word, String word_en, String type, ArrayList<String> singular,
                 ArrayList<String> plural,ArrayList<Definition> definitions) {
         this.word = word;

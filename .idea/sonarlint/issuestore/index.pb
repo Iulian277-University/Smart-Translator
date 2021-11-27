@@ -1,15 +1,43 @@
 
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 9
 	tema2.iml,a\4\a40a9fda3fdd59550abd5b59c6002a40ff5a67f7
 W
 'src/main/java/utils/FilterEntities.java,7\e\7e65351cd84908a81e1ff635fb9dd83879e31c5f
 ]
 -src/main/java/utils/GetWordsFromSentence.java,5\1\510805411380f39878462f647c1ed6ea9b534ae4
-P
- src/main/java/entities/Word.java,a\4\a4f158250f8ea091481a1318e54c5e63114ea18c
 V
 &src/main/java/entities/Definition.java,c\4\c480702b8fc2277d49af6166e42468087eea9058
+O
+dictionaries-input/fr_dict.json,8\d\8d513aedbb5fc7116f3f699d4449d472f7346ae0
+O
+dictionaries-input/ro_dict.json,3\f\3fdca5db31931bba1b0a3798bb6bcdf05d0e3a24
+m
+=src/main/java/main/testcases/TestRemoveDefinitionForWord.java,4\1\4111e0ea06c0885536ec7a70dceda144563f908f
+b
+2src/main/java/actions/RemoveDefinitionForWord.java,f\e\fe63ecdaeffc00da704a46b5a4d837625da52ce6
+j
+:src/main/java/main/testcases/TestAddDefinitionForWord.java,1\8\182dd569e9700b64e96cb3b854c22dcedf126042
 _
-/dictionaries-output/ro_dict211126101107117.json,2\b\2b03fbe5931cd999ad9707a1eae0bdc4cfb61f7e
+/src/main/java/actions/AddDefinitionForWord.java,c\3\c3114d9cbbe1f72b9fd81143122012b552ada209
+`
+0src/main/java/main/testcases/TestRemoveWord.java,0\0\000fae0d49681c284d31e176afe8c43c300adc5f
+U
+%src/main/java/actions/RemoveWord.java,9\7\9718a0a572b96c970058af4bcfe54ca366f4cfdd
+k
+;src/main/java/main/testcases/TestGetDefinitionsForWord.java,c\d\cd1030053a166705f592a727e4c1a86da26c015e
+d
+4src/main/java/actions/TranslateSentenceSynonyms.java,5\f\5f69a8051d7582b94043fde191cc23cad43700e2
+o
+?src/main/java/main/testcases/TestTranslateSentenceSynonyms.java,f\7\f79979e0b46f45c017d93be1ed8c24f6fcf38cfd
+g
+7src/main/java/main/testcases/TestTranslateSentence.java,e\3\e34c3e9e6870d47432cc7298783700da45021c90
+X
+(src/main/java/actions/TranslateWord.java,4\6\46452a79273667f6723c35da0572fe6c5cd0bcf6
+c
+3src/main/java/main/testcases/TestTranslateWord.java,9\e\9e6e14e57d02ca7928311fb4ad58e32870511dbb
+o
+?src/main/java/json_deserialization/DeserializeDictionaries.java,3\f\3fec84964cd6194bb2cf06eac023d75f3dbe8f94
+i
+9src/main/java/json_serialization/SerializeDictionary.java,1\4\142ed71e56ffba80356e5a61545c6b10beab084f
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec

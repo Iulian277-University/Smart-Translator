@@ -22,6 +22,10 @@ public final class Constants {
     public static final String JSON_FILENAME_FORMAT = "language_dictName.json";
 
     public static final String DATE_FORMAT = "yyMMddhhmmssMs";
+
+    public static final String MOST_COMMON_WORDS_EN = "database/db_en.txt";
+    public static final String MOST_COMMON_WORDS_RO = "database/db_ro.txt";
+    public static final String MOST_COMMON_WORDS_FR = "database/db_fr.txt";
     // END DO NOT MODIFY
 
 }
