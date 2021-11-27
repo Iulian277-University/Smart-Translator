@@ -4,6 +4,7 @@ import actions.AddDefinitionForWord;
 import entities.Definition;
 import entities.Word;
 import json_deserialization.DeserializeDictionaries;
+import utils.PrintWordsFromLanguage;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -13,14 +14,9 @@ public final class TestAddDefinitionForWord {
 
     public static void testAddDefinitionForWord() {
 
-        // Before
-        System.out.println("Before-FR");
+        // Before-FR
         Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
-        ArrayList<Word> frWords = wordsMap.get("fr");
-        for(Word word: frWords) {
-            System.out.println(word);
-        }
-        System.out.println();
+        PrintWordsFromLanguage.printWords(wordsMap, "fr");
 
         // Generate a new definition
         ArrayList<String> textDef = new ArrayList<>();
@@ -28,14 +24,7 @@ public final class TestAddDefinitionForWord {
 
         AddDefinitionForWord.addDefinitionForWord("manger", "fr", def);
 
-        // After
-        System.out.println("After-FR");
-        ArrayList<Word> fr2Words = wordsMap.get("fr");
-        for(Word word: fr2Words) {
-            System.out.println(word);
-        }
-        System.out.println();
-
+        // After-FR
+        PrintWordsFromLanguage.printWords(wordsMap, "fr");
     }
-
 }

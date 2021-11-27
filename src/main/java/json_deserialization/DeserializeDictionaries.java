@@ -6,6 +6,7 @@ import com.google.gson.stream.JsonReader;
 import common.Constants;
 import entities.Word;
 
+import java.awt.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -13,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,21 +26,21 @@ import java.util.stream.Stream;
 public final class DeserializeDictionaries {
     private DeserializeDictionaries() {}
 
-    public static List<String> findFiles(Path path, String fileExtension)
-            throws IOException {
+    public static List<String> findFiles(Path path, String fileExtension) {
 
         if (!Files.isDirectory(path)) {
-            throw new IllegalArgumentException("Path must be a directory!");
+            System.out.println("Path must be a valid directory! (Create dir if isn't)");
         }
 
-        List<String> result;
-
+        List<String> result = null;
         try (Stream<Path> walk = Files.walk(path)) {
             result = walk
                     .filter(p -> !Files.isDirectory(p))
                     .map(p -> p.toString().toLowerCase())
                     .filter(f -> f.endsWith(fileExtension))
                     .collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return result;
@@ -47,19 +49,41 @@ public final class DeserializeDictionaries {
     // Map<Language_Name, List_Of_Words>
     private static final Map<String, ArrayList<Word>> wordsMap = new HashMap<>();
 
-    public static void deserialize() throws IOException {
-        List<String> inputFiles = null;
-        inputFiles = findFiles(Paths.get(Constants.DICTIONARIES_INPUT_DIRECTORY), Constants.JSON_EXTENSION);
+    public static void deserialize() {
+        List<String> inputFiles;
+        try {
+            inputFiles = findFiles(Paths.get(Constants.DICTIONARIES_INPUT_DIRECTORY), Constants.JSON_EXTENSION);
+            if(inputFiles == null || inputFiles.isEmpty()) {
+                System.out.println("No json files found in the directory '" + Constants.DICTIONARIES_INPUT_DIRECTORY + "'");
+                return;
+            }
 
+            Type type = new TypeToken<List<Word>>(){}.getType();
+            Gson gson = new Gson();
+            for(String inputFilePath: inputFiles) {
 
-        Type type = new TypeToken<List<Word>>(){}.getType();
-        Gson gson = new Gson();
-        for(String inputFile: inputFiles) {
-            JsonReader reader = new JsonReader(new FileReader(inputFile));
+                // Check file format
+                String inputFilename = inputFilePath.split(Pattern.quote("\\"))[1];
+                if((inputFilename.chars().filter(ch -> ch == '_').count() > 1) ||
+                        (!inputFilename.matches(Constants.JSON_FILENAME_PATTERN))) {
+                    System.out.println("File " + inputFilename + " doesn't match the format '" + Constants.JSON_FILENAME_FORMAT + "'");
+                    continue;
+                }
 
-            // Append to hashmap based on language - dict json format: XX_dict.json (XX = "ro", "fr", ...)
-            String dictLanguage = inputFile.split("_")[0].split(Pattern.quote("\\"))[1];
-            wordsMap.put(dictLanguage, gson.fromJson(reader, type));
+                JsonReader reader = new JsonReader(new FileReader(inputFilePath));
+
+                // Append to hashmap based on language - dict json format: XX_dict.json (XX = "ro", "fr", ...)
+                String dictLanguage = inputFilename.split(Constants.JSON_LANGUAGE_DELIMITER)[0];
+
+                // If we have fr_dict1.json, fr_dict2.json, ... -> Append the words to the database
+                if (wordsMap.containsKey(dictLanguage)) {
+                    wordsMap.get(dictLanguage).addAll(gson.fromJson(reader, type));
+                } else {
+                    wordsMap.put(dictLanguage, gson.fromJson(reader, type));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

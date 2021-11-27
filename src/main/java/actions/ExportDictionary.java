@@ -17,7 +17,7 @@ public final class ExportDictionary {
     // Map<Language_Name, List_Of_Words>
     private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
-    public static void exportDictionary(String language) throws IOException {
+    public static void exportDictionary(String language) {
         // The dictionary in 'language' doesn't exist
         ArrayList<Word> languageWords = wordsMap.get(language);
         if(languageWords == null) {

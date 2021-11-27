@@ -31,6 +31,11 @@ public final class TranslateSentenceSynonyms {
     }
 
     public static ArrayList<String> translateSentence(String sentence, String fromLanguage, String toLanguage) {
+        if(fromLanguage.isEmpty() || toLanguage.isEmpty()) {
+            System.out.println("Non-empty fields required");
+            return new ArrayList<>();
+        }
+
         // Returned translated-sentences
         ArrayList<String> translatedSentences = new ArrayList<>();
 

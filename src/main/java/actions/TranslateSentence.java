@@ -9,6 +9,11 @@ public final class TranslateSentence {
     private TranslateSentence() {}
 
     public static String translateSentence(String sentence, String fromLanguage, String toLanguage) {
+        if(fromLanguage.isEmpty() || toLanguage.isEmpty()) {
+            System.out.println("Non-empty fields required");
+            return "";
+        }
+
         // Split sentence in words, deleting the punctuation and symbols
         ArrayList<String> words = GetWordsFromSentence.getWordsFromSentence(sentence);
         StringBuilder translatedSentence = new StringBuilder();

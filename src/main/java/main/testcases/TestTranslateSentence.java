@@ -10,5 +10,4 @@ public final class TestTranslateSentence {
         String translatedSentence = TranslateSentence.translateSentence(sentence, "fr", "ro");
         System.out.println(translatedSentence);
     }
-
 }
