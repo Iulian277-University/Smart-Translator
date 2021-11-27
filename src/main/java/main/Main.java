@@ -12,5 +12,7 @@ public class Main {
 
         // Run testcases
         Test.runTestcases();
+
+        // TODO: Google-Translate-API - Create dictionaries database
     }
 }
