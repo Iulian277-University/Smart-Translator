@@ -7,17 +7,15 @@ import entities.Word;
 import json_deserialization.DeserializeDictionaries;
 import org.apache.commons.lang3.StringUtils;
 import utils.FilterEntities;
-import utils.PrintWordsFromLanguage;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Objects;
 
+/** This is a class used for testing the AddDefinitionForWord action */
 public final class TestAddDefinitionForWord {
     private TestAddDefinitionForWord() {}
 
     public static void testAddDefinitionForWord() {
-
         System.out.println("--- AddDefinitionForWord - Testcase (1) ---");
         // Before-RO
         Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();

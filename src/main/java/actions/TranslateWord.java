@@ -10,15 +10,22 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
+/** This is a class used for translating a given word from a sourceLanguage to a targetLanguage */
 public final class TranslateWord {
     private TranslateWord() {}
 
+    /**
+     * Find the closest match for a given word
+     * @param languageWords: list of words for a specific language
+     * @param word 'word_name' as a string
+     * @return the most appropriate word
+     */
     private static Word closestMatch(ArrayList<Word> languageWords, String word) {
         // Find the closest match
         int distance = Integer.MAX_VALUE;
         Word closestMatch = null;
         for(Word currWord: languageWords) {
-            int currDistance = StringUtils.getLevenshteinDistance(word, currWord.getWord());
+            int currDistance = StringUtils.getLevenshteinDistance(word, currWord.getWordName());
             if(currDistance < distance) {
                 distance = currDistance;
                 closestMatch = currWord;
@@ -36,6 +43,13 @@ public final class TranslateWord {
     // Map<Language_Name, List_Of_Words>
     private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
+    /**
+     * Translate a word from sourceLanguage to targetLanguage
+     * @param word 'word_name' as a string
+     * @param fromLanguage 'source_language' as a string
+     * @param toLanguage 'target_language' as a string
+     * @return the translated word as a string
+     */
     public static String translateWord(String word, String fromLanguage, String toLanguage) {
         word = word.toLowerCase();
         if(word.isEmpty() || fromLanguage.isEmpty() || toLanguage.isEmpty()) {
@@ -72,7 +86,7 @@ public final class TranslateWord {
                     return null;
                 }
             }
-            inputWordString = inputWord.getWord_en();
+            inputWordString = inputWord.getWordEn();
         } else {
             inputWordString = word;
         }
@@ -89,15 +103,23 @@ public final class TranslateWord {
                     return null;
                 }
             }
-            outputWordString = outputWord.getWord();
+            outputWordString = outputWord.getWordName();
         } else {
-            outputWordString = inputWord.getWord_en();
+            outputWordString = inputWord.getWordEn();
         }
 
         // Return the word-translation
         return outputWordString;
     }
 
+    /**
+     * Translate a word from sourceLanguage to targetLanguage
+     * Give feedback to stdout while translating the word
+     * @param word 'word_name' as a string
+     * @param fromLanguage 'source_language' as a string
+     * @param toLanguage 'target_language' as a string
+     * @return the translated word as a string
+     */
     public static String translateWordWithFeedback(String word, String fromLanguage, String toLanguage) {
         word = word.toLowerCase();
         if(word.isEmpty() || fromLanguage.isEmpty() || toLanguage.isEmpty()) {
@@ -137,7 +159,7 @@ public final class TranslateWord {
                     return null;
                 }
             }
-            inputWordString = inputWord.getWord_en();
+            inputWordString = inputWord.getWordEn();
         } else {
             inputWordString = word;
         }
@@ -154,9 +176,9 @@ public final class TranslateWord {
                     return null;
                 }
             }
-            outputWordString = outputWord.getWord();
+            outputWordString = outputWord.getWordName();
         } else {
-            outputWordString = inputWord.getWord_en();
+            outputWordString = inputWord.getWordEn();
         }
 
         // Return the word-translation

@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import common.Constants;
 import entities.Word;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 import java.nio.file.Files;
@@ -15,9 +14,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/** This is a class used for serializing a dictionary */
 public final class SerializeDictionary {
     private SerializeDictionary() {}
 
+    /**
+     * Serialize a dictionary given the list of words and the language
+     * @param wordsToSerialize: list of words to be serialized
+     * @param language of the dictionary to be serialized
+     */
     public static void serialize(List<Word> wordsToSerialize, String language) {
         // Generate a unique number for saving the dictionaries (as json files)
         Date currentDate = new Date();

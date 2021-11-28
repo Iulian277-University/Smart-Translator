@@ -8,19 +8,27 @@ import utils.FilterEntities;
 import utils.GetWordsFromSentence;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+/** This is a class used for translating a given sentence from a sourceLanguage to a targetLanguage,
+ * using synonyms of the words */
 public final class TranslateSentenceSynonyms {
     private TranslateSentenceSynonyms() {}
 
     // Map<Language_Name, List_Of_Words>
     private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
+    /**
+     * Get synonyms for a given word
+     * @param word 'word_name' as a string
+     * @return a list of synonyms of the given word
+     */
     private static ArrayList<String> getSynonymsForWord(Word word) {
         // List of synonyms
         ArrayList<String> synonyms = new ArrayList<>();
 
-        ArrayList<Definition> definitions = word.getDefinitions();
+        List<Definition> definitions = word.getDefinitions();
         if(definitions != null) {
             for (Definition definition : definitions) {
                 if (definition.getDictType().equals(Constants.DEFINITION_SYNONYMS)) {
@@ -32,7 +40,14 @@ public final class TranslateSentenceSynonyms {
         return synonyms;
     }
 
-    public static ArrayList<String> translateSentence(String sentence, String fromLanguage, String toLanguage) {
+    /**
+     * Translate a sentence sourceLanguage to targetLanguage, using synonyms
+     * @param sentence 'sentence' as a string
+     * @param fromLanguage 'source_language' as a string
+     * @param toLanguage 'target_language' as a string
+     * @return a list of translations as strings
+     */
+    public static List<String> translateSentence(String sentence, String fromLanguage, String toLanguage) {
         if(fromLanguage.isEmpty() || toLanguage.isEmpty()) {
             System.out.println("Non-empty fields required");
             return new ArrayList<>();
@@ -41,7 +56,7 @@ public final class TranslateSentenceSynonyms {
         // Returned translated-sentences
         ArrayList<String> translatedSentences = new ArrayList<>();
 
-        ArrayList<String> words = GetWordsFromSentence.getWordsFromSentence(sentence);
+        List<String> words = GetWordsFromSentence.getWordsFromSentence(sentence);
 
         for(int i = 0; i < Constants.TRANSLATION_ALTERNATIVES; ++i) {
             StringBuilder translatedSentence = new StringBuilder();
@@ -55,7 +70,7 @@ public final class TranslateSentenceSynonyms {
 
                     String synonymUsed;
                     if(wordSynonyms.isEmpty()) {
-                        synonymUsed = translatedWordObject.getWord();
+                        synonymUsed = translatedWordObject.getWordName();
                         translatedSentence.append(synonymUsed).append(" ");
                         continue;
                     }
@@ -70,5 +85,4 @@ public final class TranslateSentenceSynonyms {
 
         return translatedSentences;
     }
-
 }

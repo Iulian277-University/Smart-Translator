@@ -5,21 +5,20 @@ import common.Constants;
 import entities.Word;
 import json_deserialization.DeserializeDictionaries;
 import org.apache.commons.lang3.StringUtils;
-import utils.PrintWordsFromLanguage;
-
+import utils.WordsFromLanguage;
 import java.util.ArrayList;
 import java.util.Map;
 
+/** This is a class used for testing the AddWord action */
 public final class TestAddWord {
     private TestAddWord() {}
 
     public static void testAddWord() {
-
         System.out.println();
         System.out.println("--- AddWord - Testcase (1) ---");
         // Before-FR
         Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
-        String before = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
+        String before = WordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
 
         // TestWord
         ArrayList<String> singular = new ArrayList<>();
@@ -34,19 +33,19 @@ public final class TestAddWord {
         AddWord.addWord(testWord, Constants.FRENCH_LANGUAGE);
 
         // After-FR
-        String after = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
+        String after = WordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
         System.out.println("Diff: " + StringUtils.difference(before, after));
 
 
         System.out.println("--- AddWord - Testcase (2) ---");
         // Before-FR
-        before = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
+        before = WordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
 
         // TestWord
         AddWord.addWord(testWord, Constants.FRENCH_LANGUAGE);
 
         // After-FR
-        after = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
+        after = WordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
         System.out.println("Diff: " + StringUtils.difference(before, after));
         System.out.println();
     }

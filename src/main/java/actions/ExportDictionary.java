@@ -5,18 +5,22 @@ import entities.Word;
 import json_deserialization.DeserializeDictionaries;
 import json_serialization.SerializeDictionary;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/** This is a class used for exporting a dictionary */
 public final class ExportDictionary {
     private ExportDictionary() {}
 
     // Map<Language_Name, List_Of_Words>
     private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
+    /**
+     * Export a dictionary with a given language
+     * @param language of the dictionary to be exported
+     */
     public static void exportDictionary(String language) {
         // The dictionary in 'language' doesn't exist
         ArrayList<Word> languageWords = wordsMap.get(language);
@@ -32,7 +36,7 @@ public final class ExportDictionary {
         for(Word word: wordsToExport) {
             if(word.getDefinitions() != null) {
                 word.setDefinitions(
-                        (ArrayList<Definition>) word.getDefinitions()
+                        word.getDefinitions()
                                 .stream()
                                 .sorted(Comparator.comparing(Definition::getYear))
                                 .collect(Collectors.toList())
@@ -43,7 +47,7 @@ public final class ExportDictionary {
         // Sort words in ascending order alphabetically
         wordsToExport = (ArrayList<Word>) wordsToExport
                 .stream()
-                .sorted(Comparator.comparing(Word::getWord))
+                .sorted(Comparator.comparing(Word::getWordName))
                 .collect(Collectors.toList());
 
         // Serialize list of words

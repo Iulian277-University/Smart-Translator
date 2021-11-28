@@ -3,6 +3,7 @@ package main.testcases;
 import actions.TranslateWord;
 import common.Constants;
 
+/** This is a class used for testing the TranslateWord action */
 public final class TestTranslateWord {
     private TestTranslateWord() {}
 
@@ -16,6 +17,7 @@ public final class TestTranslateWord {
         if(translatedWord != null) {
             System.out.println(fromLanguage + ":" + word + " -> " + toLanguage + ":" + translatedWord);
         }
+
 
         System.out.println("--- TranslateWord - Testcase (2) ---");
         word = "hello";

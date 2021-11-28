@@ -9,19 +9,20 @@ public class Main {
         // Deserialize json dictionaries into class models
         System.out.println("----- IMPORTING INPUT DICTIONARIES -----");
         DeserializeDictionaries.deserialize();
-        System.out.println("----- END IMPORTING INPUT DICTIONARIES -----");
+        System.out.println("----- END IMPORTING INPUT DICTIONARIES -----\n");
 
         /**
         @Create-the-database:
-        @v1: Google-Translate-API: Produces error 429 (too many requests) (https://github.com/goxr3plus/java-google-speech-api)
-        @v2: Selenium Python Script is too slow (~1 word/sec)
+        @v1: Google-Translate-API: Produces error 429 (too many requests)
+        @v2: Selenium Python Script is too slow (~1 word/sec) (https://github.com/Iulian277/Google-Translate-Web-Scrapping)
         @v3: Alternative: Use a small database (ro <-> en <-> fr) (~3k words)
          */
 
-        // Import 3k words database
+        // Import the database with 3k words
         System.out.println("----- IMPORTING DATABASE -----");
         Database.loadDatabase();
-        System.out.println("----- END IMPORTING DATABASE -----");
+        System.out.println("----- END IMPORTING DATABASE -----\n");
+
 
         // Run testcases
         System.out.println("----- STARTING TESTCASES -----");

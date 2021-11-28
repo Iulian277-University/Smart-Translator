@@ -1,9 +1,9 @@
 package entities;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
-import java.util.ArrayList;
-
+/** This is a class used for modeling a Definition class */
 public class Definition {
     /**  Attributes */
     @SerializedName("dict")
@@ -16,10 +16,10 @@ public class Definition {
     private Integer year;
 
     @SerializedName("text")
-    private ArrayList<String> text;
+    private List<String> text;
 
     /**  Constructors */
-    public Definition(String dict, String dictType, Integer year, ArrayList<String> text) {
+    public Definition(String dict, String dictType, Integer year, List<String> text) {
         this.dict = dict;
         this.dictType = dictType;
         this.year = year;
@@ -39,13 +39,12 @@ public class Definition {
         return year;
     }
 
-    public ArrayList<String> getText() {
+    public List<String> getText() {
         return text;
     }
 
-    /**  Setters */
 
-
+    /** Public methods */
     @Override
     public String toString() {
         return "Definition{" +
