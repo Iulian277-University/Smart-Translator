@@ -2,7 +2,6 @@ package actions;
 
 import utils.GetWordsFromSentence;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public final class TranslateSentence {

@@ -12,6 +12,11 @@ public final class Constants {
     public static final String DEFINITION_DEFINITIONS = "definitions";
 
     public static final Integer TRANSLATION_ALTERNATIVES = 3;
+
+    public static final String ENGLISH_LANGUAGE = "en";
+    public static final String FRENCH_LANGUAGE = "fr";
+    public static final String ROMANIAN_LANGUAGE = "ro";
+
     // END CUSTOMIZABLE PARAMETERS
 
 
@@ -26,6 +31,7 @@ public final class Constants {
     public static final String MOST_COMMON_WORDS_EN = "database/db_en.txt";
     public static final String MOST_COMMON_WORDS_RO = "database/db_ro.txt";
     public static final String MOST_COMMON_WORDS_FR = "database/db_fr.txt";
+
     // END DO NOT MODIFY
 
 }

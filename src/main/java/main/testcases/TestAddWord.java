@@ -1,6 +1,7 @@
 package main.testcases;
 
 import actions.AddWord;
+import common.Constants;
 import entities.Word;
 import json_deserialization.DeserializeDictionaries;
 import utils.PrintWordsFromLanguage;
@@ -15,7 +16,7 @@ public final class TestAddWord {
 
         // Before-FR
         Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
-        PrintWordsFromLanguage.printWords(wordsMap, "fr");
+        PrintWordsFromLanguage.printWords(wordsMap, Constants.FRENCH_LANGUAGE);
 
         // Test Word for actions
         ArrayList<String> singular = new ArrayList<>();
@@ -30,6 +31,6 @@ public final class TestAddWord {
         AddWord.addWord(testWord, "fr");
 
         // After-FR
-        PrintWordsFromLanguage.printWords(wordsMap, "fr");
+        PrintWordsFromLanguage.printWords(wordsMap, Constants.FRENCH_LANGUAGE);
     }
 }

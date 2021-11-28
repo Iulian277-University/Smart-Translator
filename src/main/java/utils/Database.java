@@ -15,7 +15,7 @@ import java.util.Map;
 public final class Database {
     private Database() {}
 
-    public static void loadDatabase() throws IOException {
+    private static void initDatabase() throws IOException {
         Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
         // RO <-> EN <-> FR Database
@@ -38,6 +38,14 @@ public final class Database {
 
             AddWord.addWord(new Word(roWord.toLowerCase(), enWord.toLowerCase()), "ro");
             AddWord.addWord(new Word(frWord.toLowerCase(), enWord.toLowerCase()), "fr");
+        }
+    }
+
+    public static void loadDatabase() {
+        try {
+            initDatabase();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
