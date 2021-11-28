@@ -30,12 +30,14 @@ public final class ExportDictionary {
 
         // Sort inside definitions in ascending order by 'year'
         for(Word word: wordsToExport) {
-            word.setDefinitions(
-                    (ArrayList<Definition>) word.getDefinitions()
-                    .stream()
-                    .sorted(Comparator.comparing(Definition::getYear))
-                    .collect(Collectors.toList())
-            );
+            if(word.getDefinitions() != null) {
+                word.setDefinitions(
+                        (ArrayList<Definition>) word.getDefinitions()
+                                .stream()
+                                .sorted(Comparator.comparing(Definition::getYear))
+                                .collect(Collectors.toList())
+                );
+            }
         }
 
         // Sort words in ascending order alphabetically

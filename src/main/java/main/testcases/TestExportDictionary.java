@@ -6,6 +6,6 @@ public final class TestExportDictionary {
     private TestExportDictionary() {}
 
     public static void testExportDictionary() {
-        ExportDictionary.exportDictionary("ro");
+        ExportDictionary.exportDictionary("fr");
     }
 }
