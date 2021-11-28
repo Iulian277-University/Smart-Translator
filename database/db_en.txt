@@ -1251,7 +1251,6 @@ heel
 height
 helicopter
 hell
-hello
 help
 helpful
 her

@@ -33,13 +33,16 @@ public final class RemoveDefinitionForWord {
         ArrayList<Definition> filteredWordDefinitions = filteredWord.getDefinitions();
         ArrayList<Definition> definitionsAfterRemove = new ArrayList<>();
         boolean deletedDefinition = false;
-        for(Definition definition: filteredWordDefinitions) {
-            if(definition.getDict().equals(dictionary)) {
-                deletedDefinition = true;
-            } else {
-                definitionsAfterRemove.add(definition);
+        if(filteredWordDefinitions != null) {
+            for (Definition definition : filteredWordDefinitions) {
+                if (definition.getDict().equals(dictionary)) {
+                    deletedDefinition = true;
+                } else {
+                    definitionsAfterRemove.add(definition);
+                }
             }
         }
+
         if(deletedDefinition) {
             filteredWord.setDefinitions(definitionsAfterRemove);
             System.out.println("The definitions for word '" + filteredWord.getWord() + "' were successfully removed");
@@ -47,7 +50,7 @@ public final class RemoveDefinitionForWord {
         }
 
         // No definitions from 'dictionary'
-        System.out.println("Word '" + word + "' doesn't have definitions from dictionary' " + dictionary + "'");
+        System.out.println("Word '" + word + "' doesn't have definitions from dictionary '" + dictionary + "'");
         return false;
     }
 

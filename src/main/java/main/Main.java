@@ -1,11 +1,6 @@
 package main;
 
-import common.Constants;
 import json_deserialization.DeserializeDictionaries;
-
-import java.io.*;
-
-import actions.*;
 import utils.Database;
 
 /** This class is the entry point of the program */
@@ -17,6 +12,7 @@ public class Main {
         System.out.println("----- END IMPORTING INPUT DICTIONARIES -----");
 
         /**
+        @Create-the-database:
         @v1: Google-Translate-API: Produces error 429 (too many requests) (https://github.com/goxr3plus/java-google-speech-api)
         @v2: Selenium Python Script is too slow (~1 word/sec)
         @v3: Alternative: Use a small database (ro <-> en <-> fr) (~3k words)
@@ -31,7 +27,5 @@ public class Main {
         System.out.println("----- STARTING TESTCASES -----");
         Test.runTestcases();
         System.out.println("----- ENDING TESTCASES -----");
-
-        // TODO: Translate to/from english
     }
 }

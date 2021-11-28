@@ -20,7 +20,7 @@ public final class TestRemoveWord {
         Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
         String before = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
 
-        RemoveWord.removeWord("jeu", Constants.FRENCH_LANGUAGE);
+        RemoveWord.removeWord("bonjour", Constants.FRENCH_LANGUAGE);
 
         // After-FR
         String after = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
@@ -30,7 +30,7 @@ public final class TestRemoveWord {
         System.out.println("--- RemoveWord - Testcase (2) ---");
         before = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
 
-        RemoveWord.removeWord("jeu", Constants.FRENCH_LANGUAGE);
+        RemoveWord.removeWord("bonjour", Constants.FRENCH_LANGUAGE);
 
         // After-FR
         after = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);

@@ -22,7 +22,9 @@ public final class TestRemoveDefinitionForWord {
         String before = "";
         Word word = FilterEntities.filterWordsByName(wordsMap.get(Constants.FRENCH_LANGUAGE), "chat");
         if(word != null) {
-            before = word.getDefinitions().toString();
+            if(word.getDefinitions() != null) {
+                before = word.getDefinitions().toString();
+            }
         }
 
         RemoveDefinitionForWord.removeDefinition("chat", Constants.FRENCH_LANGUAGE, "Larousse");
@@ -30,7 +32,9 @@ public final class TestRemoveDefinitionForWord {
         // After-FR
         String after = "";
         if(word != null) {
-            after = word.getDefinitions().toString();
+            if(word.getDefinitions() != null) {
+                after = word.getDefinitions().toString();
+            }
         }
         System.out.println("Diff: " + StringUtils.difference(before, after));
 
@@ -40,7 +44,9 @@ public final class TestRemoveDefinitionForWord {
         before = "";
         word = FilterEntities.filterWordsByName(wordsMap.get(Constants.FRENCH_LANGUAGE), "chat");
         if(word != null) {
-            before = word.getDefinitions().toString();
+            if(word.getDefinitions() != null) {
+                before = word.getDefinitions().toString();
+            }
         }
 
         RemoveDefinitionForWord.removeDefinition("chat", Constants.FRENCH_LANGUAGE, "Larousse");
@@ -48,7 +54,9 @@ public final class TestRemoveDefinitionForWord {
         // After-FR
         after = "";
         if(word != null) {
-            after = word.getDefinitions().toString();
+            if(word.getDefinitions() != null) {
+                after = word.getDefinitions().toString();
+            }
         }
         System.out.println("Diff: " + StringUtils.difference(before, after));
         System.out.println();
