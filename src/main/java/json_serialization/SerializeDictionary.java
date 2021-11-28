@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import common.Constants;
 import entities.Word;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 import java.nio.file.Files;
@@ -29,7 +30,12 @@ public final class SerializeDictionary {
         // Check if output directory is valid
         Path outputDir = Paths.get(Constants.DICTIONARIES_OUTPUT_DIRECTORY);
         if (!Files.isDirectory(outputDir)) {
-            System.out.println("Path must be a valid directory! (Create dir if isn't)");
+            try {
+                Files.createDirectories(outputDir);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Path must be a valid directory! (Create dir if isn't)");
+            }
         }
 
         // Export to json
@@ -42,6 +48,7 @@ public final class SerializeDictionary {
         try {
             writer = Files.newBufferedWriter(outputFile);
             gson.toJson(wordsToSerialize, writer);
+            System.out.println("'" + language + "' dictionary has been exported successfully");
         } catch (IOException e) {
             e.printStackTrace();
         }

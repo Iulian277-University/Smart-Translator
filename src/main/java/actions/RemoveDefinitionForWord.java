@@ -47,7 +47,7 @@ public final class RemoveDefinitionForWord {
         }
 
         // No definitions from 'dictionary'
-        System.out.println("Doesn't exist definitions from dictionary' " + dictionary + "'");
+        System.out.println("Word '" + word + "' doesn't have definitions from dictionary' " + dictionary + "'");
         return false;
     }
 

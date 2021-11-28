@@ -2,8 +2,10 @@ package main.testcases;
 
 import actions.AddWord;
 import actions.RemoveWord;
+import common.Constants;
 import entities.Word;
 import json_deserialization.DeserializeDictionaries;
+import org.apache.commons.lang3.StringUtils;
 import utils.PrintWordsFromLanguage;
 
 import java.util.ArrayList;
@@ -14,12 +16,24 @@ public final class TestRemoveWord {
 
     public static void testRemoveWord() {
         // Before-FR
+        System.out.println("--- RemoveWord - Testcase (1) ---");
         Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
-        PrintWordsFromLanguage.printWords(wordsMap, "fr");
+        String before = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
 
-        RemoveWord.removeWord("jeu", "fr");
+        RemoveWord.removeWord("jeu", Constants.FRENCH_LANGUAGE);
 
         // After-FR
-        PrintWordsFromLanguage.printWords(wordsMap, "fr");
+        String after = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
+
+
+        // Before-FR
+        System.out.println("--- RemoveWord - Testcase (2) ---");
+        before = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
+
+        RemoveWord.removeWord("jeu", Constants.FRENCH_LANGUAGE);
+
+        // After-FR
+        after = PrintWordsFromLanguage.wordsList(wordsMap, Constants.FRENCH_LANGUAGE);
+        System.out.println();
     }
 }

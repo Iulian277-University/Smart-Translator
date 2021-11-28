@@ -27,7 +27,7 @@ public final class GetDefinitionsForWord {
         // The word isn't in the dictionary
         Word filteredWord = FilterEntities.filterWordsByName(languageWords, word);
         if(filteredWord == null) {
-            System.out.println("The word '" + word + "' isn't in the dictionary");
+            System.out.println("The word '" + word + "' isn't in the '" + language + " 'dictionary");
             return new ArrayList<>();
         }
 
