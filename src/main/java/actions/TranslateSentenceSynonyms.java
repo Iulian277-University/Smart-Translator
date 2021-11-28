@@ -16,14 +16,16 @@ public final class TranslateSentenceSynonyms {
     // Map<Language_Name, List_Of_Words>
     private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
-    private static ArrayList<String> getSynonymsforWord(Word word) {
+    private static ArrayList<String> getSynonymsForWord(Word word) {
         // List of synonyms
         ArrayList<String> synonyms = new ArrayList<>();
 
         ArrayList<Definition> definitions = word.getDefinitions();
-        for(Definition definition: definitions) {
-            if(definition.getDictType().equals(Constants.DEFINITION_SYNONYMS)) {
-                synonyms.addAll(definition.getText());
+        if(definitions != null) {
+            for (Definition definition : definitions) {
+                if (definition.getDictType().equals(Constants.DEFINITION_SYNONYMS)) {
+                    synonyms.addAll(definition.getText());
+                }
             }
         }
 
@@ -49,7 +51,7 @@ public final class TranslateSentenceSynonyms {
                     translatedSentence.append("(").append(word).append(" not found) ");
                 } else {
                     Word translatedWordObject = FilterEntities.filterWordsByName(wordsMap.get(toLanguage), translatedWord);
-                    ArrayList<String> wordSynonyms = getSynonymsforWord(translatedWordObject);
+                    ArrayList<String> wordSynonyms = getSynonymsForWord(translatedWordObject);
 
                     String synonymUsed;
                     if(wordSynonyms.isEmpty()) {

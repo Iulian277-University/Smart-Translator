@@ -1,6 +1,5 @@
 package actions;
 
-import common.Constants;
 import entities.Word;
 import json_deserialization.DeserializeDictionaries;
 import utils.FilterEntities;
@@ -8,13 +7,35 @@ import utils.FilterEntities;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 public final class TranslateWord {
     private TranslateWord() {}
+
+    private static Word closestMatch(ArrayList<Word> languageWords, String word) {
+        // Find the closest match
+        int distance = Integer.MAX_VALUE;
+        Word closestMatch = null;
+        for(Word currWord: languageWords) {
+            int currDistance = StringUtils.getLevenshteinDistance(word, currWord.getWord());
+            if(currDistance < distance) {
+                distance = currDistance;
+                closestMatch = currWord;
+            }
+        }
+
+        return closestMatch;
+    }
+
 
     // Map<Language_Name, List_Of_Words>
     private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
     public static String translateWord(String word, String fromLanguage, String toLanguage) {
+        if(word.isEmpty() || fromLanguage.isEmpty() || toLanguage.isEmpty()) {
+            return null;
+        }
+
         // fromLanguage isn't in the database
         ArrayList<Word> fromLanguageWords = wordsMap.get(fromLanguage);
         if(fromLanguageWords == null) {
@@ -27,16 +48,25 @@ public final class TranslateWord {
             return null;
         }
 
+        // For finding the closest match, I'm using the 'LevenshteinDistanceAlgorithm'
+        // https://en.wikipedia.org/wiki/Levenshtein_distance
+
         // Filter word by name in the 'fromLanguage' database and get the object
         Word inputWord = FilterEntities.filterWordsByName(fromLanguageWords, word);
         if(inputWord == null) {
-            return null;
+            inputWord = closestMatch(fromLanguageWords, word);
+            if(inputWord == null) {
+                return null;
+            }
         }
 
         // Filter word by name_en in the 'toLanguage' database and get the object
         Word outputWord = FilterEntities.filterWordsByEnglishName(toLanguageWords, inputWord.getWord_en());
         if(outputWord == null) {
-            return null;
+            outputWord = closestMatch(toLanguageWords, word);
+            if(outputWord == null) {
+                return null;
+            }
         }
 
         // Return the word-translation
@@ -65,15 +95,19 @@ public final class TranslateWord {
         // Filter word by name in the 'fromLanguage' database and get the object
         Word inputWord = FilterEntities.filterWordsByName(fromLanguageWords, word);
         if(inputWord == null) {
-            System.out.println("The word '" + word + "' isn't in the '" + fromLanguage + "' dictionary");
-            return null;
+            inputWord = closestMatch(fromLanguageWords, word);
+            if(inputWord == null) {
+                return null;
+            }
         }
 
         // Filter word by name_en in the 'toLanguage' database and get the object
         Word outputWord = FilterEntities.filterWordsByEnglishName(toLanguageWords, inputWord.getWord_en());
         if(outputWord == null) {
-            System.out.println("The word '" + inputWord.getWord_en() + "' isn't in the '" + toLanguage + "' dictionary");
-            return null;
+            outputWord = closestMatch(toLanguageWords, word);
+            if(outputWord == null) {
+                return null;
+            }
         }
 
         // Return the word-translation

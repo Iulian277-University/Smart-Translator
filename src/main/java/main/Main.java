@@ -1,13 +1,9 @@
 package main;
 
 import common.Constants;
-import entities.Word;
 import json_deserialization.DeserializeDictionaries;
-import main.testcases.TestExportDictionary;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Map;
 
 import actions.*;
 import utils.Database;
@@ -15,21 +11,31 @@ import utils.Database;
 /** This class is the entry point of the program */
 public class Main {
     public static void main(String[] args){
-        // Deserialize json into class models
-         DeserializeDictionaries.deserialize();
+        // Deserialize json dictionaries into class models
+        System.out.println("----- IMPORTING INPUT DICTIONARIES -----");
+        DeserializeDictionaries.deserialize();
+        System.out.println("----- END IMPORTING INPUT DICTIONARIES -----");
+
+
+        /**
+        @v1: Google-Translate-API: Produces error 429 (too many requests) (https://github.com/goxr3plus/java-google-speech-api)
+        @v2: Selenium Python Script is too slow (~1 word/sec)
+        @v3: Alternative: Use a small database (ro <-> en <-> fr) (~3k words)
+         */
+
+        System.out.println("----- IMPORTING DATABASE -----");
+        Database.loadDatabase();
+        System.out.println("----- END IMPORTING DATABASE -----");
 
         // Run testcases
-        // Test.runTestcases();
+        System.out.println("----- STARTING TESTCASES -----");
+        Test.runTestcases();
+        System.out.println("----- ENDING TESTCASES -----");
 
-        // Google-Translate-API: Produces error 429 (too many requests) :(
-        // https://github.com/goxr3plus/java-google-speech-api
-        // Alternative: Use a small database (ro <-> en <-> fr) (~3k words)
-//        try {
-//            Database.loadDatabase();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        System.out.println(TranslateWord.translateWord("ieri", "ro", "fr"));
+
+        // Translate
+//        System.out.println(TranslateSentence.translateSentence(
+//                "salut, azi este foarte frumos", Constants.ROMANIAN_LANGUAGE, Constants.FRENCH_LANGUAGE));
+
     }
 }

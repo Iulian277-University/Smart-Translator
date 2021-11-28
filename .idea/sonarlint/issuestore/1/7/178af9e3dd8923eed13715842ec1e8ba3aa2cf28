@@ -1,11 +1,0 @@
-
-O
-java:S1481"-Remove this unused "wordsMap" local variable.(­ß’ üÿÿÿÿ8¡»ş–Ö/
-\
-java:S1128	":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ8¨Ûş–Ö/
-i
-java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(õœ„8¿»ş–Ö/
-i
-java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Úùé8¿»ş–Ö/
-n
-java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(©…œÚşÿÿÿÿ8¿»ş–Ö/
