@@ -24,12 +24,12 @@ public class Main {
         // Google-Translate-API: Produces error 429 (too many requests) :(
         // https://github.com/goxr3plus/java-google-speech-api
         // Alternative: Use a small database (ro <-> en <-> fr) (~3k words)
-        try {
-            Database.loadDatabase();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(TranslateWord.translateWord("ieri", "ro", "fr"));
+//        try {
+//            Database.loadDatabase();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        System.out.println(TranslateWord.translateWord("ieri", "ro", "fr"));
     }
 }
