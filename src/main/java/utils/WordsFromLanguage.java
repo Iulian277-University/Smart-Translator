@@ -5,9 +5,15 @@ import entities.Word;
 import java.util.ArrayList;
 import java.util.Map;
 
-public final class PrintWordsFromLanguage {
-    private PrintWordsFromLanguage() {}
+/** This is a handler class for getting words from a specific language */
+public final class WordsFromLanguage {
+    private WordsFromLanguage() {}
 
+    /**
+     * Print the words from a given language
+     * @param wordsMap: map with all words
+     * @param language as a string
+     */
     public static void printWords(Map<String, ArrayList<Word>> wordsMap, String language) {
         ArrayList<Word> languageWords = wordsMap.get(language);
         if(languageWords == null) {
@@ -21,6 +27,12 @@ public final class PrintWordsFromLanguage {
         System.out.println();
     }
 
+    /**
+     * Get the words from a given language
+     * @param wordsMap: map with all words
+     * @param language as a string
+     * @return a list of words from a queried language
+     */
     public static String wordsList(Map<String, ArrayList<Word>> wordsMap, String language) {
         ArrayList<Word> languageWords = wordsMap.get(language);
         if(languageWords == null) {
@@ -33,5 +45,4 @@ public final class PrintWordsFromLanguage {
         }
         return retString.toString();
     }
-
 }

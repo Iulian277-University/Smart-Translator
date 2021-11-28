@@ -1,40 +1,40 @@
 package entities;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
-import java.util.ArrayList;
-
+/** This is a class used for modeling a Word class */
 public class Word {
     /** Attributes */
     @SerializedName("word")
-    private String word;
+    private String wordName;
 
     @SerializedName("word_en")
-    private String word_en;
+    private String wordEn;
 
     @SerializedName("type")
     private String type;
 
     @SerializedName("singular")
-    private ArrayList<String> singular;
+    private List<String> singular;
 
     @SerializedName("plural")
-    private ArrayList<String> plural;
+    private List<String> plural;
 
     @SerializedName("definitions")
-    private ArrayList<Definition> definitions;
+    private List<Definition> definitions;
 
 
     /** Constructors */
-    public Word(String word, String word_en) {
-        this.word = word;
-        this.word_en = word_en;
+    public Word(String wordName, String wordEn) {
+        this.wordName = wordName;
+        this.wordEn = wordEn;
     }
 
-    public Word(String word, String word_en, String type, ArrayList<String> singular,
-                ArrayList<String> plural,ArrayList<Definition> definitions) {
-        this.word = word;
-        this.word_en = word_en;
+    public Word(String word, String wordEn, String type, List<String> singular,
+                List<String> plural,List<Definition> definitions) {
+        this.wordName = word;
+        this.wordEn = wordEn;
         this.type = type;
         this.singular = singular;
         this.plural = plural;
@@ -42,31 +42,28 @@ public class Word {
     }
 
     /** Getters */
-    public String getWord() {
-        return word;
+    public String getWordName() {
+        return wordName;
     }
 
-    public String getWord_en() {
-        return word_en;
+    public String getWordEn() {
+        return wordEn;
     }
 
-    public ArrayList<Definition> getDefinitions() {
+    public List<Definition> getDefinitions() {
         return definitions;
     }
 
-    public void setDefinitions(ArrayList<Definition> definitions) {
+    public void setDefinitions(List<Definition> definitions) {
         this.definitions = definitions;
     }
 
-    /** Setters */
-
-
-
+    /** Public methods */
     @Override
     public String toString() {
         return "Word{" +
-                "word='" + word + '\'' +
-                ", word_en='" + word_en + '\'' +
+                "word='" + wordName + '\'' +
+                ", word_en='" + wordEn + '\'' +
                 ", type='" + type + '\'' +
                 ", singular=" + singular +
                 ", plural=" + plural +

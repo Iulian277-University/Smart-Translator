@@ -1251,7 +1251,6 @@ toc
 înălţime
 elicopter
 iad
-Buna ziua
 Ajutor
 util
 a ei

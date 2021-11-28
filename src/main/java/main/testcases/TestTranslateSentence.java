@@ -3,6 +3,7 @@ package main.testcases;
 import actions.TranslateSentence;
 import common.Constants;
 
+/** This is a class used for testing the TranslateSentence action */
 public final class TestTranslateSentence {
     private TestTranslateSentence() {}
 

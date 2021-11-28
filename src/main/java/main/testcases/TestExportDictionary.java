@@ -3,6 +3,7 @@ package main.testcases;
 import actions.ExportDictionary;
 import common.Constants;
 
+/** This is a class used for testing the ExportDictionary action */
 public final class TestExportDictionary {
     private TestExportDictionary() {}
 

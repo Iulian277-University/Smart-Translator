@@ -6,11 +6,10 @@ import entities.Word;
 import json_deserialization.DeserializeDictionaries;
 import org.apache.commons.lang3.StringUtils;
 import utils.FilterEntities;
-import utils.PrintWordsFromLanguage;
-
 import java.util.ArrayList;
 import java.util.Map;
 
+/** This is a class used for testing the RemoveDefinitionForWord action */
 public final class TestRemoveDefinitionForWord {
     private TestRemoveDefinitionForWord() {}
 
@@ -21,7 +20,7 @@ public final class TestRemoveDefinitionForWord {
         Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
         String before = "";
         Word word = FilterEntities.filterWordsByName(wordsMap.get(Constants.FRENCH_LANGUAGE), "chat");
-        if(word != null) {
+        if((word != null) && (word.getDefinitions() != null)) {
             before = word.getDefinitions().toString();
         }
 
@@ -29,7 +28,7 @@ public final class TestRemoveDefinitionForWord {
 
         // After-FR
         String after = "";
-        if(word != null) {
+        if((word != null) && (word.getDefinitions() != null)) {
             after = word.getDefinitions().toString();
         }
         System.out.println("Diff: " + StringUtils.difference(before, after));
@@ -39,7 +38,7 @@ public final class TestRemoveDefinitionForWord {
         // Before-FR
         before = "";
         word = FilterEntities.filterWordsByName(wordsMap.get(Constants.FRENCH_LANGUAGE), "chat");
-        if(word != null) {
+        if((word != null) && (word.getDefinitions() != null)) {
             before = word.getDefinitions().toString();
         }
 
@@ -47,7 +46,7 @@ public final class TestRemoveDefinitionForWord {
 
         // After-FR
         after = "";
-        if(word != null) {
+        if((word != null) && (word.getDefinitions() != null)) {
             after = word.getDefinitions().toString();
         }
         System.out.println("Diff: " + StringUtils.difference(before, after));

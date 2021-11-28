@@ -2,12 +2,13 @@ package main;
 
 import main.testcases.*;
 
+/** This is a class used for running some testcases */
 public final class Test {
     private Test() {}
 
     public static void runTestcases() {
-        // 1 - TestAddWord
-        TestAddWord.testAddWord();
+         // 1 - TestAddWord
+         TestAddWord.testAddWord();
 
          // 2 - TestRemoveWord
          TestRemoveWord.testRemoveWord();

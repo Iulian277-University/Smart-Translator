@@ -6,7 +6,6 @@ import com.google.gson.stream.JsonReader;
 import common.Constants;
 import entities.Word;
 
-import java.awt.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -14,7 +13,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +24,12 @@ import java.util.stream.Stream;
 public final class DeserializeDictionaries {
     private DeserializeDictionaries() {}
 
+    /**
+     * Get a list of file-paths as a string list
+     * @param path of the directory where the files are located
+     * @param fileExtension for selecting only those files
+     * @return a list of file-paths as strings
+     */
     public static List<String> findFiles(Path path, String fileExtension) {
 
         if (!Files.isDirectory(path)) {
@@ -49,6 +53,10 @@ public final class DeserializeDictionaries {
     // Map<Language_Name, List_Of_Words>
     private static final Map<String, ArrayList<Word>> wordsMap = new HashMap<>();
 
+    /**
+     * Convert json files into class models, using GSON library
+     * https://github.com/google/gson
+     */
     public static void deserialize() {
         List<String> inputFiles;
         try {
@@ -82,11 +90,15 @@ public final class DeserializeDictionaries {
                     wordsMap.put(dictLanguage, gson.fromJson(reader, type));
                 }
             }
+            System.out.println("-> Imported successfully <-");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Return the map created previously by 'deserialize' method
+     */
     public static Map<String, ArrayList<Word>> getMapOfWords() {
         return wordsMap;
     }

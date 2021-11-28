@@ -2,9 +2,9 @@ package main.testcases;
 
 import actions.TranslateSentenceSynonyms;
 import common.Constants;
+import java.util.List;
 
-import java.util.ArrayList;
-
+/** This is a class used for testing the TranslateSentenceSynonyms action */
 public final class TestTranslateSentenceSynonyms {
     private TestTranslateSentenceSynonyms() {}
 
@@ -12,7 +12,7 @@ public final class TestTranslateSentenceSynonyms {
         System.out.println("--- TranslateSentenceSynonyms - Testcase (1) ---");
         String sentence = "+chat *! diplômé,  ?manger ... salut";
 
-        ArrayList<String> translatedSentences =
+        List<String> translatedSentences =
                 TranslateSentenceSynonyms.translateSentence(sentence, Constants.FRENCH_LANGUAGE, Constants.ROMANIAN_LANGUAGE);
 
         if(!translatedSentences.isEmpty()) {
