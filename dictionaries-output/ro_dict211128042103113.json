@@ -6971,6 +6971,39 @@
   },
   {
     "word": "mânca",
+    "word_en": "eat",
+    "type": "verb",
+    "singular": [
+      "mănânc",
+      "mănânci",
+      "mănâncă"
+    ],
+    "plural": [
+      "mănâncăm",
+      "mănâncați",
+      "mănâncă"
+    ],
+    "definitions": [
+      {
+        "dict": "Dicționarul explicativ al limbii române (ediția a II-a revăzută și adăugită)",
+        "dictType": "definitions",
+        "year": 2009,
+        "text": [
+          "A mesteca un aliment în gură și a-l înghiți; a folosi în alimentație, a consuma"
+        ]
+      },
+      {
+        "dict": "Micul dicționar academic, ediția a II-a",
+        "dictType": "definitions",
+        "year": 2010,
+        "text": [
+          "A mesteca un aliment în gură și a-l înghiți; a folosi în alimentație, a consuma."
+        ]
+      }
+    ]
+  },
+  {
+    "word": "mânca",
     "word_en": "eat"
   },
   {
@@ -8019,6 +8052,12 @@
           "Dispozitiv de agățare și de desprindere a berbecului din capătul cablului de ridicare de la sonetele cu cădere liberă",
           "Mănunchi de sârme de oțel, folosit pentru curățarea de noroi sau de pământ a utilajelor de foraj"
         ]
+      },
+      {
+        "dict": "DEX",
+        "dictType": "synonyms",
+        "year": 2007,
+        "text": []
       }
     ]
   },
@@ -9489,6 +9528,46 @@
   {
     "word": "salată",
     "word_en": "salad"
+  },
+  {
+    "word": "salut",
+    "word_en": "hello",
+    "type": "noun",
+    "singular": [
+      "salut"
+    ],
+    "plural": [
+      "saluturi"
+    ],
+    "definitions": [
+      {
+        "dict": "Dicționarul explicativ al limbii române (ediția a II-a revăzută și adăugită)",
+        "dictType": "synonyms",
+        "year": 2008,
+        "text": [
+          "buna ziua",
+          "salutare"
+        ]
+      },
+      {
+        "dict": "Dicționarul explicativ al limbii române (ediția a II-a revăzută și adăugită)",
+        "dictType": "definitions",
+        "year": 2009,
+        "text": [
+          "A rosti, a scrie, a transmite un cuvânt, o frază, o formulă etc. ori a face un gest, o mișcare etc. pentru a-și exprima politețea, respectul, afecțiunea etc. îndeosebi la întâlnire și la despărțire",
+          "A-și manifesta bucuria (prin aclamații, gesturi)"
+        ]
+      },
+      {
+        "dict": "Micul dicționar academic, ediția a II-a",
+        "dictType": "definitions",
+        "year": 2010,
+        "text": [
+          "Cuvânt, frază, formulă, gest, mișcare etc. prin care cineva salută pe altcineva (direct sau mediat)",
+          "A face un gest sau a rosti o formulă uzuală de politețe, de respect, de simpatie etc. la întâlnirea cu cineva sau la despărțire"
+        ]
+      }
+    ]
   },
   {
     "word": "salut",

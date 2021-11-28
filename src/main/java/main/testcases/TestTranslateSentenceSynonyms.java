@@ -1,6 +1,7 @@
 package main.testcases;
 
 import actions.TranslateSentenceSynonyms;
+import common.Constants;
 
 import java.util.ArrayList;
 
@@ -8,15 +9,29 @@ public final class TestTranslateSentenceSynonyms {
     private TestTranslateSentenceSynonyms() {}
 
     public static void testTranslateSentenceSynonyms() {
-        String sentence = "+chat *! jeu,  ?manger";
+        System.out.println("--- TranslateSentenceSynonyms - Testcase (1) ---");
+        String sentence = "+chat *! diplômé,  ?manger ... salut";
 
         ArrayList<String> translatedSentences =
-                TranslateSentenceSynonyms.translateSentence(sentence, "fr", "ro");
+                TranslateSentenceSynonyms.translateSentence(sentence, Constants.FRENCH_LANGUAGE, Constants.ROMANIAN_LANGUAGE);
 
         if(!translatedSentences.isEmpty()) {
             for (String translatedSentence : translatedSentences) {
-                System.out.println(translatedSentence);
+                System.out.println(sentence + " -> " + translatedSentence);
             }
         }
+
+        System.out.println("--- TranslateSentenceSynonyms - Testcase (2) ---");
+        sentence = "buna!~cum.. te simti ?";
+
+        translatedSentences =
+                TranslateSentenceSynonyms.translateSentence(sentence, Constants.ROMANIAN_LANGUAGE, Constants.FRENCH_LANGUAGE);
+
+        if(!translatedSentences.isEmpty()) {
+            for (String translatedSentence : translatedSentences) {
+                System.out.println(sentence + " -> " + translatedSentence);
+            }
+        }
+        System.out.println();
     }
 }

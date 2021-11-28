@@ -111,7 +111,7 @@
         ]
     },
     {
-        "word": "saluta",
+        "word": "salut",
         "word_en": "hello",
         "type": "noun",
         "singular": [
@@ -137,6 +137,15 @@
                 "text": [
                     "A rosti, a scrie, a transmite un cuvânt, o frază, o formulă etc. ori a face un gest, o mișcare etc. pentru a-și exprima politețea, respectul, afecțiunea etc. îndeosebi la întâlnire și la despărțire",
                     "A-și manifesta bucuria (prin aclamații, gesturi)"
+                ]
+            },
+            {
+                "dict": "Dicționarul explicativ al limbii române (ediția a II-a revăzută și adăugită)",
+                "dictType": "synonyms",
+                "year": 2008,
+                "text": [
+                    "buna ziua",
+                    "salutare"
                 ]
             }
         ]

@@ -21,4 +21,17 @@ public final class PrintWordsFromLanguage {
         System.out.println();
     }
 
+    public static String wordsList(Map<String, ArrayList<Word>> wordsMap, String language) {
+        ArrayList<Word> languageWords = wordsMap.get(language);
+        if(languageWords == null) {
+            return "";
+        }
+
+        StringBuilder retString = new StringBuilder();
+        for(Word word: languageWords) {
+            retString.append(word.toString());
+        }
+        return retString.toString();
+    }
+
 }

@@ -22,9 +22,9 @@
                 ]
             },
             {
-                "dict": "Larousse1",
+                "dict": "Dict2",
                 "dictType": "definitions",
-                "year": 2000,
+                "year": 2001,
                 "text": [
                     "Mammifère carnivore (félidé), sauvage ou domestique, au museau court et arrondi",
                     "Familier. Terme d'affection, de tendresse adressé à quelqu'un",
@@ -127,6 +127,15 @@
                 "year": 2000,
                 "text": [
                     "Terme de salutation dont on se sert pendant la journée quand on aborde quelqu'un ou, moins souvent, quand on prend congé de quelqu'un : Bonjour, comment allez-vous ?"
+                ]
+            },
+            {
+                "dict": "Larousse",
+                "dictType": "synonyms",
+                "year": 2001,
+                "text": [
+                    "au revoir",
+                    "salut"
                 ]
             }
         ]

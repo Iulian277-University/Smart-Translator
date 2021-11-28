@@ -17,6 +17,8 @@ public final class Constants {
     public static final String FRENCH_LANGUAGE = "fr";
     public static final String ROMANIAN_LANGUAGE = "ro";
 
+    public static final String SPANISH_LANGUAGE = "es";
+
     // END CUSTOMIZABLE PARAMETERS
 
 

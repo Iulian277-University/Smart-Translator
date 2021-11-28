@@ -24,6 +24,10 @@ public final class TranslateWord {
             }
         }
 
+        // Not a good approximation
+        if(distance > 0.25 * word.length()) {
+            closestMatch = null;
+        }
         return closestMatch;
     }
 
@@ -32,6 +36,7 @@ public final class TranslateWord {
     private static final Map<String, ArrayList<Word>> wordsMap = DeserializeDictionaries.getMapOfWords();
 
     public static String translateWord(String word, String fromLanguage, String toLanguage) {
+        word = word.toLowerCase();
         if(word.isEmpty() || fromLanguage.isEmpty() || toLanguage.isEmpty()) {
             return null;
         }
@@ -97,6 +102,7 @@ public final class TranslateWord {
         if(inputWord == null) {
             inputWord = closestMatch(fromLanguageWords, word);
             if(inputWord == null) {
+                System.out.println("The word '" + word + "' isn't in the '" + fromLanguage + "' dictionary");
                 return null;
             }
         }
@@ -106,6 +112,7 @@ public final class TranslateWord {
         if(outputWord == null) {
             outputWord = closestMatch(toLanguageWords, word);
             if(outputWord == null) {
+                System.out.println("The word '" + word + "' isn't in the '" + toLanguage + "' dictionary");
                 return null;
             }
         }
